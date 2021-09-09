@@ -1,0 +1,12 @@
+{% extends "index.html"%}
+
+
+{% block content %}
+<br>
+<br>
+<form action="/ricerca" method="GET">
+      <input class="form-control me-2" type="Codice articolo" placeholder="Codice articolo" aria-label="Codice articolo">
+      <button class="btn btn-outline-success" type="submit">Cerca</button>
+</form>
+
+{% endblock content %}
