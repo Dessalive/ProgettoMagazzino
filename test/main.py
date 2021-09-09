@@ -12,13 +12,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
+    
+    codice = request.form.get('codice')
+
     return render_template("index.html")
 
 
-@app.route("/ricerca", methods = ['POST'])
+@app.route("/ricerca", methods = ['GET'])
 def ricerca():
-
-    codice = request.form['codice']
 
     return render_template("ricerca.html") 
   
@@ -27,10 +28,8 @@ def ricerca():
 
 
 class RicercaCodice:
-    def __init__(self, codice, database, temp):
+    def __init__(self, codice):
         self.codice=codice
-        self.database=database
-        self.temp=temp
 
     def Copia(self):
         with open ("~/Desktop/ProgettoMagazzino/ProgettoMagazzino/product-template.csv","r") as x:
@@ -41,8 +40,8 @@ class RicercaCodice:
     
     def Cerca(self, database):
         for j in database:
-            if "diode" in j.lower():
-                print("Articolo trovato: %s" % j.strip())
+            if codice in j.lower():
+                print("Articolo trovato: " + str(j.strip()))
                 temp.append(j.strip())
         
         print("Sono stati trovati " + str(len(temp)) + " articoli.")                 
