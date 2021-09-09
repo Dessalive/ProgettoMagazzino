@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 import csv
 
 
@@ -8,14 +8,19 @@ database=[]
 temp=[]
 app = Flask(__name__)
 
+
+
 @app.route("/")
 def home():
     return render_template("index.html")
 
 
-@app.route("/ricerca")
+@app.route("/ricerca", methods = ['POST'])
 def ricerca():
-   return render_template("ricerca.html") 
+
+    codice = request.form['codice']
+
+    return render_template("ricerca.html") 
   
 
 
@@ -36,9 +41,9 @@ class RicercaCodice:
     
     def Cerca(self, database):
         for j in database:
-            if #strvar in j.lower():
+            if "diode" in j.lower():
                 print("Articolo trovato: %s" % j.strip())
                 temp.append(j.strip())
         
-        print("Sono stati trovati " + len(temp) + " articoli.")                 
+        print("Sono stati trovati " + str(len(temp)) + " articoli.")                 
     
