@@ -57,15 +57,17 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Codice Articolo" aria-label="Codice">
-        <button class="btn btn-outline-success" type="submit" href="/ricerca">Cerca</button>
+        <input type="text" id="Codice" placeholder="Codice Articolo" >
+        <button href="/ricerca" onclick="funzione()" class="btn btn-outline-success" type="submit" >Cerca</button>
+        <p id="demo"></p>
+
+        {% block content %}
+        {% endblock content%}
+
       </form>
     </div>
   </div>
@@ -74,16 +76,22 @@
 <main class="container">
   <div class="bg-light p-5 rounded">
     <h1>Benvenuto!</h1>
-    <p class="lead">Questa è la pagina di visualizzazione per la ricerca dei prodotti. Per cercare un prodotto inserire il codice articolo nella barra di ricerca</p>
+    <p class="lead">Questa è la pagina di visualizzazione per la ricerca dei prodotti. Per cercare un prodotto inserire il <strong>codice articolo</strong> nella barra di ricerca</p>
   </div>
 </main>
 
 
-    <script src="~/Desktop/ProgettoMagazzino/ProgettoMagazzino/static/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="~/Desktop/ProgettoMagazzino/ProgettoMagazzino/static/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    
+    function funzione() {
+      var x = document.getElementById("Codice").value;
+      document.getElementById("demo").innerHTML = x;
+    }
+    
+    </script>
 
 
-    {% block content %}
-    {% endblock content%}
+    
 
   </body>
 </html>
