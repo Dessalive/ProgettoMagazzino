@@ -46,8 +46,9 @@ def home():
 @app.route("/ricerca", methods = ['GET'])
 def ricerca():
     
-    codice = request.form.get('codice')
-    print(codice)
+    print(request.form.get('codice'))
+    
+    
 
     return render_template("ricerca.html") 
   

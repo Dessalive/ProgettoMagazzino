@@ -9,13 +9,26 @@
 <div>  
   <form action="/ricerca" method="GET">
     <div class = "form-group">
-        <input type="text" name = "codice" placeholder="Codice Articolo">
+        <input type="text" id = "codice" placeholder="Codice Articolo">
         <button class="btn btn-outline-success" type="submit">Cerca</button>
       </div>
-  </form>
+
+      {% block ricerca %}
+      {% endblock ricerca %}
+  
+    </form>
+
+<script>
+
+  var x = document.getElementById(codice)
+
+
+</script>
+
+
 </div>
 
-{% endblock %}
+{% endblock body %}
 
 
 
