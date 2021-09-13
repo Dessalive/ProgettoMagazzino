@@ -2,6 +2,7 @@
 
 
 
+from typing import Any
 from flask import Flask, render_template, url_for, request
 import csv
 
@@ -55,13 +56,13 @@ def home():
 
 @app.route("/ricerca", methods = ['GET'])
 
-def ricerca(database=[]):
+def ricerca(temp=[],lunghezza=str, database=[]):
 
-    CodiceArticolo.copia(database=database)
-    #CodiceArticolo.cerca(database, codice)
+    CodiceArticolo.copia(database)
+    CodiceArticolo.cerca(temp, lunghezza)
     
 
-    return render_template("ricerca.html") 
+    return render_template("ricerca.html", temp = temp, lunghezza = lunghezza, database=database) 
   
 
 
