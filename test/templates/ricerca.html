@@ -13,9 +13,9 @@
     {% if codice in j.lower(): %}
         <li>Articolo trovato: {{j.strip()}}</li>
     {% endif %}
-{% endfor %}
+{% endfor %}-->
 
-<h6> Sono stati trovati: {{lunghezza}} articoli</h6>-->
+
 <table><tr ALIGN = CENTER><th ALIGN = LEFT >Nome|</th><th ALIGN = RIGHT>Riferimento Interno</th></tr>
     {% for x in database %}
         <tr>
@@ -25,5 +25,5 @@
         </tr>
     {% endfor %}
 </table>
-
+<h6> Sono stati trovati {{lunghezza}} articoli</h6>
 {% endblock ricerca %}
