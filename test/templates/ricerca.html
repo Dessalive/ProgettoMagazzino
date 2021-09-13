@@ -3,22 +3,14 @@
 <hr>
 <hr>
 
-<!--<table CELLSPACING=20>
-    <tr><td ALIGN=LEFT>Nome</td><td ALIGN=RIGHT>Riferimento Interno</td></tr>
 
-</table>
-
-{% for j in database %}
-
-    {% if codice in j.lower(): %}
-        <li>Articolo trovato: {{j.strip()}}</li>
-    {% endif %}
-{% endfor %}-->
-
-    
+    <h4>Sono stati trovati {{lista_database|count}} articoli</h4>
+    <br>
     {% for x in lista_database %}
+    
     <h6>Articolo trovato: {{x}}</h6>
+    <hr>
     {% endfor %}
-     
+    
      
 {% endblock ricerca %}
