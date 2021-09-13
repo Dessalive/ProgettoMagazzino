@@ -8,10 +8,10 @@
 
 </table>
 
-{% for i in database %}
+{% for i in database_copia %}
 
-    {% if codice in j.lower(): %}
-        <h1>Articolo trovato: {{str(j.strip()))}}</h1>
+    {% if codice_articolo in j.lower(): %}
+        <li>Articolo trovato: {{str(j.strip()))}}</li>
     
 
 {% endblock ricerca %}
