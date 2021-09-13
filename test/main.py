@@ -16,7 +16,7 @@ class CodiceArticolo:
 
     def copia(self, database):
         database=[]
-        with open ("~/Desktop/ProgettoMagazzino/ProgettoMagazzino/product-template.csv","r") as x:
+        with open ("~/Desktop/ProgettoMagazzino/ProgettoMagazzino/test/product-template.csv","r") as x:
             y = csv.reader(x, delimiter=',', quotechar='\"')
             for i in y:
                 database.append("%s %s" % (i[1],i[7]))
@@ -42,7 +42,7 @@ app = Flask(__name__)
 
 def home(database):
 
-    CodiceArticolo.copia(database=[])
+    CodiceArticolo.copia(database=database)
     
     return render_template("index.html")
 
@@ -53,7 +53,7 @@ def ricerca(database, codice):
     CodiceArticolo.cerca(database, codice)
     
 
-    return render_template("ricerca.html", database = database, codice = codice) 
+    return render_template("ricerca.html", database_copia = database, codice_articolo = codice) 
   
 
 
