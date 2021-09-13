@@ -48,6 +48,7 @@ def home():
 def ricerca():
 
     codice = request.args.get("codice", None)
+    
 
     c = CodiceArticolo()
     c.__init__()
