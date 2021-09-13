@@ -48,11 +48,12 @@ def home():
 
 def ricerca():
 
-    codice = request.form.get('codice', None)
+    codice = request.args.get("codice")
     #print(codice)
 
     c = CodiceArticolo()
     c.__init__()
+    
 
     temp = c.cerca(codice)
     
