@@ -6,14 +6,12 @@ from typing import Any
 from flask import Flask, render_template, url_for, request
 import csv
 
-from flask.sessions import NullSession
-
 
 
 
 
 class CodiceArticolo:
-    def __init__(self, ):
+    def __init__(self):
         self.database=[]
         with open ("product-template.csv","r") as x:
             y = csv.reader(x, delimiter=',', quotechar='\"')
@@ -26,7 +24,6 @@ class CodiceArticolo:
 
         temp=[]
         for j in self.database:
-            y = j.lower()
             if codice in j.lower():
                 #print("Articolo trovato: " + str(j.strip()))
                 temp.append(j.strip())
@@ -43,7 +40,6 @@ app = Flask(__name__)
 
 def home():
 
-   
 
    return render_template("index.html")
 
@@ -53,15 +49,17 @@ def home():
 
 def ricerca():
 
-    c = request.form.get('codice', None)
-    print(c)
+    codice = request.form.get('codice', None)
+    #print(codice)
 
-   # c = CodiceArticolo()
-#
-   # temp = c.cerca(codice)
+    c = CodiceArticolo()
+    c.__init__()
+
+    
+    temp = c.cerca(codice)
     
 
-    return render_template("ricerca.html", lista_database =["01", "10"] ) 
+    return render_template("ricerca.html", lista_database = temp ) 
   
 
 
