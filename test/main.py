@@ -2,7 +2,6 @@
 
 
 
-from typing import Any
 from flask import Flask, render_template, url_for, request
 import csv
 
@@ -55,7 +54,6 @@ def ricerca():
     c = CodiceArticolo()
     c.__init__()
 
-    
     temp = c.cerca(codice)
     
 
