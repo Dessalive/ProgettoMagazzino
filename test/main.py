@@ -56,7 +56,7 @@ def ricerca():
     temp = c.cerca(codice)
     
 
-    return render_template("ricerca.html", lista_database = temp) 
+    return render_template("ricerca.html", lista_database = temp, codice_trovato = codice) 
   
 
 
