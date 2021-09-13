@@ -24,7 +24,6 @@ class CodiceArticolo:
         temp=[]
         for j in self.database:
             if codice in j.lower():
-                #print("Articolo trovato: " + str(j.strip()))
                 temp.append(j.strip())
         
         return temp
@@ -48,8 +47,7 @@ def home():
 
 def ricerca():
 
-    codice = request.args.get("codice")
-    #print(codice)
+    codice = request.args.get("codice", None)
 
     c = CodiceArticolo()
     c.__init__()
@@ -58,7 +56,7 @@ def ricerca():
     temp = c.cerca(codice)
     
 
-    return render_template("ricerca.html", lista_database = temp ) 
+    return render_template("ricerca.html", lista_database = temp) 
   
 
 
