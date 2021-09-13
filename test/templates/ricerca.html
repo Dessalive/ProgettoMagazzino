@@ -3,15 +3,27 @@
 <hr>
 <hr>
 
-<table CELLSPACING=20 ALIGN=CENTER>
-    <tr><td>Nome</td><td>Riferimento Interno</td></tr>
+<!--<table CELLSPACING=20>
+    <tr><td ALIGN=LEFT>Nome</td><td ALIGN=RIGHT>Riferimento Interno</td></tr>
 
 </table>
 
-{% for i in database_copia %}
+{% for j in database %}
 
-    {% if codice_articolo in j.lower(): %}
-        <li>Articolo trovato: {{str(j.strip()))}}</li>
-    
+    {% if codice in j.lower(): %}
+        <li>Articolo trovato: {{j.strip()}}</li>
+    {% endif %}
+{% endfor %}
+
+<h6> Sono stati trovati: {{lunghezza}} articoli</h6>-->
+<table><tr ALIGN = CENTER><th ALIGN = LEFT >Nome|</th><th ALIGN = RIGHT>Riferimento Interno</th></tr>
+    {% for x in database %}
+        <tr>
+        {% for col in x %}
+            <td>%s</td> % col
+        {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
 
 {% endblock ricerca %}
