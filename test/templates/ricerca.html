@@ -4,7 +4,8 @@
 <br>
 
 
-    <h4>Sono stati trovati {{lista_database|count}} articoli</h4>
+    <h4>Hai cercato "{{codice_trovato}}" e sono stati trovati {{lista_database|count}} articoli</h4>
+    <br>
     <br>
     {% for x in lista_database %}
     
@@ -12,5 +13,4 @@
     <hr>
     {% endfor %}
     
-
 {% endblock ricerca %}
