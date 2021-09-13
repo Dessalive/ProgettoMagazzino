@@ -13,29 +13,25 @@ from flask.sessions import NullSession
 
 
 class CodiceArticolo:
-    def __init__(self, codice, database):
-        self.codice=codice
-        self.database=database
-#~
-    def copia(database):
-        database=[]
-        with open ("/home/stagista/Desktop/ProgettoMagazzino/ProgettoMagazzino/test/product-template.csv","r") as x:
+    def __init__(self, ):
+        self.database=[]
+        with open ("product-template.csv","r") as x:
             y = csv.reader(x, delimiter=',', quotechar='\"')
             for i in y:
-                database.append("%s %s" % (i[1],i[7]))
-        return database
+                self.database.append("%s %s" % (i[1],i[7]))
+
+        
     
-    def cerca(database, codice):
+    def cerca(self, codice):
 
         temp=[]
-        for j in database:
+        for j in self.database:
             y = j.lower()
             if codice in j.lower():
                 #print("Articolo trovato: " + str(j.strip()))
                 temp.append(j.strip())
         
-        lunghezza = len(temp)
-        return temp, lunghezza
+        return temp
 
 
 
@@ -53,16 +49,19 @@ def home():
 
 
 
-
 @app.route("/ricerca", methods = ['GET'])
 
-def ricerca(temp=[],lunghezza=str, database=[]):
+def ricerca():
 
-    CodiceArticolo.copia(database)
-    CodiceArticolo.cerca(temp, lunghezza)
+    c = request.form.get('codice', None)
+    print(c)
+
+   # c = CodiceArticolo()
+#
+   # temp = c.cerca(codice)
     
 
-    return render_template("ricerca.html", temp = temp, lunghezza = lunghezza, database=database) 
+    return render_template("ricerca.html", lista_database =["01", "10"] ) 
   
 
 
