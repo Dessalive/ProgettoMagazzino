@@ -16,14 +16,8 @@
 {% endfor %}-->
 
 
-<table><tr ALIGN = CENTER><th ALIGN = LEFT >Nome|</th><th ALIGN = RIGHT>Riferimento Interno</th></tr>
-    {% for x in database %}
-        <tr>
-        {% for col in x %}
-            <td>%s</td> % col
-        {% endfor %}
-        </tr>
+    {% for x in lista_database %}
+    {{x}}
     {% endfor %}
-</table>
-<h6> Sono stati trovati {{lunghezza}} articoli</h6>
+     
 {% endblock ricerca %}
