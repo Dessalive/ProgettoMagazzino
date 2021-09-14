@@ -3,8 +3,7 @@
 
 
 from flask import Flask, render_template, url_for, request
-import csv
-
+import csv, json
 
 
 
@@ -55,9 +54,17 @@ def ricerca():
     
 
     temp = c.cerca(codice)
+
+    #for x in temp:
+    #    json_dict = { "Nome" : temp[0] , "Riferimento_Interno" : temp[1] } 
+    
     
 
-    return render_template("ricerca.html", lista_database = temp, codice_trovato = codice) 
+    
+    json_str = json.dumps(temp)
+    
+
+    return render_template("ricerca.html", Stringa_json=json_str, codice_trovato = codice, lunghezza = len(temp)) 
   
 
 
