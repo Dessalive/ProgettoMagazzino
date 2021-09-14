@@ -2,15 +2,16 @@
 {% block ricerca %}
 <br>
 <br>
-
-
-    <h4>Hai cercato "{{codice_trovato}}" e sono stati trovati {{lista_database|count}} articoli</h4>
-    <br>
-    <br>
-    {% for x in lista_database %}
     
-    <h6>Articolo trovato: {{x}}</h6>
+
+    <h4>Hai cercato "{{codice_trovato}}" e sono stati trovati {{lunghezza}} articoli</h4>
+    <br>
+    <br>
+
+    
+    <h6>Articoli trovati: <br> {{Stringa_json}}</h6>
     <hr>
-    {% endfor %}
-    
+     
+
+
 {% endblock ricerca %}
