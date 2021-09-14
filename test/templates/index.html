@@ -3,10 +3,8 @@
 <title>Ricerca Magazzino</title>
 {% endblock %}
 
-
 {% block body %}
  
-
 <div>  
   <form action="/ricerca" method="GET" ID="InserimentoCodice">
     <div class = "form-group">
@@ -14,15 +12,10 @@
         <button class="btn btn-outline-success" type="submit">Cerca</button>
       </div>
 
-
       {% block ricerca %}
       {% endblock ricerca %}
   
     </form>
-
-
-
-
 </div>
 
 {% endblock body %}
